@@ -49,7 +49,7 @@ export default class Feedback extends Component {
               percentage={this.countPositiveFeedbackPercentage()}
             />
           ) : (
-            <Notification message={`No feedback given!`} />
+            <Notification message="No feedback given!" />
           )}
         </Section>
       </div>
