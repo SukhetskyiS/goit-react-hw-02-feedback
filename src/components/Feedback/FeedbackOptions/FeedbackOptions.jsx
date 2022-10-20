@@ -1,27 +1,24 @@
-export default function FeedbackOptions({
-  onIncrementGood,
-  onIncrementNeutral,
-  onIncrementBad,
-}) {
+import PropTypes from 'prop-types';
+
+export default function FeedbackOptions({ options, onLeaveFeedback }) {
   return (
-    <div
-      style={{
-        height: '100px',
-        display: 'flex',
-        justifyContent: 'left',
-        alignItems: 'center',
-        gap: '30px',
-      }}
-    >
-      <button type="button" onClick={onIncrementGood}>
-        Good
-      </button>
-      <button type="button" onClick={onIncrementNeutral}>
-        Neutral
-      </button>
-      <button type="button" onClick={onIncrementBad}>
-        Bad
-      </button>
+    <div>
+      {options.map(option => {
+        return (
+          <button
+            key={option}
+            name={option}
+            onClick={onLeaveFeedback}
+            type="button"
+          >
+            {option}
+          </button>
+        );
+      })}
     </div>
   );
 }
+
+FeedbackOptions.propTypes = {
+  options: PropTypes.array.isRequired,
+};
