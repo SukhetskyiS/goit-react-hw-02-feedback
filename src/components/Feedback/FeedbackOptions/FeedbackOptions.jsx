@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
 export default function FeedbackOptions({ options, onLeaveFeedback }) {
+  console.log(options);
   return (
     <div>
       {options.map(option => {
@@ -20,5 +21,6 @@ export default function FeedbackOptions({ options, onLeaveFeedback }) {
 }
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.array.isRequired,
+  options: PropTypes.arrayOf(PropTypes.string),
+  option: PropTypes.string,
 };
